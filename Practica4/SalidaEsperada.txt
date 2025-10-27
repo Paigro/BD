@@ -1,0 +1,188 @@
+******  1.	Elabora un listado (sin repeticiones) con los apellidos de los clientes de la empresa que hayan hecho algún pedido online (order_mode online) junto con el apellido del empleado que gestiona su cuenta. Muestra en el listado primero el apellido del empleado que gestiono la cuenta y luego el apellido del cliente, y haz que el listado se encuentre ordenado por apellido de empleado primero y luego por apellido del cliente. Usa reuniones para ello.....
+
+LAST_NAME                 CUST_LAST_NAME      
+------------------------- --------------------
+Zlotkey                   Aykroyd             
+Zlotkey                   Brown               
+Zlotkey                   Cage                
+Russell                   Edwards             
+Zlotkey                   Hannah              
+Zlotkey                   Hasan               
+Russell                   Henner              
+Zlotkey                   Higgins             
+Zlotkey                   Landis              
+Zlotkey                   Mahoney             
+Zlotkey                   Martin              
+
+LAST_NAME                 CUST_LAST_NAME      
+------------------------- --------------------
+Zlotkey                   Mason               
+Zlotkey                   Neeson              
+Russell                   Pacino              
+Russell                   Rampling            
+Zlotkey                   Sen                 
+Zlotkey                   Spielberg           
+Zlotkey                   Steenburgen         
+Zlotkey                   Sutherland          
+
+19 filas seleccionadas. 
+
+******  2.	Listado de categorías con más de 2 productos obsoletos (PRODUCT_STATUS obsolete). Lista la categoría y el número de productos obsoletos.....
+
+CATEGORY_ID NUMPRODOBS
+----------- ----------
+         13          5
+         14          3
+         19          3
+
+******  3.	Se quiere generar un “ranking” de los productos más vendidos en el último semestre del año 1990. Para ello nos piden mostrar el nombre de producto y el número de unidades vendidas para cada producto vendido en el último semestre del año 1990 (ordenado por número de unidades vendidas de forma descendente).
+
+PRODUCT_NAME                                         UNIDADES
+-------------------------------------------------- ----------
+SPNIX4.0 - UL/D                                            44
+LaserPro 1200/8/BW                                         40
+Manual - Vision Tools2.0                                   31
+CPU D400                                                   30
+Compact 400/LQ                                             28
+Plastic Stock - Y                                          28
+Screws <Z.24.S>                                            27
+CD-ROM 600/E/24x                                           26
+SPNIX4.0 - SAL                                             25
+PS 220V /L                                                 24
+Battery Backup (DA-130)                                    23
+
+PRODUCT_NAME                                         UNIDADES
+-------------------------------------------------- ----------
+HD 8.4GB @5400                                             21
+Monitor Hinge - HD                                         21
+Screws <B.28.S>                                            17
+Card Holder - 25                                           17
+PS 12V /P                                                  14
+Screws <S.16.S>                                            12
+MB - S600                                                  11
+PS 110V /T                                                  6
+Modem - 56/90/I                                             5
+KB 101/EN                                                   3
+Battery - NiHM                                              3
+
+PRODUCT_NAME                                         UNIDADES
+-------------------------------------------------- ----------
+MB - S900/650+                                              2
+
+23 filas seleccionadas. 
+
+******  4.	Muestra los puestos en la empresa que tienen un salario mínimo superior al salario medio de los empleados de la compañía. El listado debe incluir el puesto y su salario mínimo, y estar ordenado ascendentemente por salario mínimo.
+
+JOB_TITLE                           MIN_SALARY
+----------------------------------- ----------
+Purchasing Manager                        8000
+Accounting Manager                        8200
+Finance Manager                           8200
+Marketing Manager                         9000
+Sales Manager                            10000
+Administration Vice President            15000
+President                                20000
+
+7 filas seleccionadas. 
+
+******  5.	Mostrar el código, nombre y precio mínimo de  productos de la categoría 14 que no aparecen en ningún pedido. Usa para ello una subconsulta no correlacionada.
+
+PRODUCT_ID PRODUCT_NAME                                        MIN_PRICE CATEGORY_ID SUPPLIER_ID
+---------- -------------------------------------------------- ---------- ----------- -----------
+      2404 64MB Cache /NM                                            180          14      102087
+      2384 DIMM - 1GB                                                479          14      102074
+      1770 8MB Cache /NM                                              73          14      102050
+      1739 SDRAM - 128 MB                                            248          14      102077
+      1763 DIMM - 64MB                                               202          14      102069
+      1749 DIMM - 256MB                                              300          14      102053
+      3088 SDRAM - 32 MB                                             220          14      102057
+      1750 DIMM - 2GB                                                560          14      102052
+      1755 32MB Cache /NM                                             99          14      102076
+      2396 EDO - 32MB                                                149          14      102051
+
+10 filas seleccionadas. 
+
+******  6.	Mostrar el código de cliente, nombre y apellidos de aquellos clientes alemanes (NLS_TERRITORY GERMANY) que no han realizado ningún pedido. Usa para ello una consulta correlacionada.
+
+CUSTOMER_ID CUST_FIRST_NAME      CUST_LAST_NAME      
+----------- -------------------- --------------------
+        327 Hannah               Kanth               
+        326 Hal                  Olin                
+        328 Hannah               Field               
+
+******  7.	Mostrar el código de cliente, nombre y apellidos (sin repetición) de aquellos clientes que han realizado al menos un pedido de tipo (order_mode) online y otro direct.
+
+CUSTOMER_ID CUST_FIRST_NAME      CUST_LAST_NAME      
+----------- -------------------- --------------------
+        144 Sivaji               Landis              
+        147 Ishwarya             Roberts             
+        116 Geraldine            Martin              
+        108 Meenakshi            Mason               
+        148 Gustav               Steenburgen         
+        149 Markus               Rampling            
+        117 Guillaume            Edwards             
+        107 Matthias             Cruise              
+        104 Harrison             Sutherland          
+        105 Matthias             MacGraw             
+        109 Christian            Cage                
+
+CUSTOMER_ID CUST_FIRST_NAME      CUST_LAST_NAME      
+----------- -------------------- --------------------
+        145 Mammutti             Pacino              
+        146 Elia                 Fawcett             
+        106 Matthias             Hannah              
+        118 Maurice              Mahoney             
+
+15 filas seleccionadas. 
+
+******  8.	Mostrar el nombre y apellidos de aquellos clientes que, habiendo realizado algún pedido, nunca han realizado pedidos de tipo direct.
+
+CUST_FIRST_NAME      CUST_LAST_NAME      
+-------------------- --------------------
+Maurice              Hasan               
+Divine               Aykroyd             
+Sachin               Spielberg           
+Dieter               Matthau             
+Maximilian           Henner              
+Dianne               Sen                 
+Elizabeth            Brown               
+Diane                Higgins             
+Sachin               Neeson              
+Goldie               Slater              
+Maurice              Daltrey             
+
+11 filas seleccionadas. 
+
+
+CUST_FIRST_NAME      CUST_LAST_NAME      
+-------------------- --------------------
+Dianne               Sen                 
+Divine               Aykroyd             
+Elizabeth            Brown               
+Maurice              Daltrey             
+Goldie               Slater              
+Sachin               Spielberg           
+Sachin               Neeson              
+Maximilian           Henner              
+Maurice              Hasan               
+Diane                Higgins             
+Dieter               Matthau             
+
+11 filas seleccionadas. 
+
+******  9.	Se quiere generar un listado de los productos que generan mayor beneficio. Mostrar el código de producto, su precio mínimo, su precio de venta al público y el porcentaje de incremento de precio. En el listado deben aparecer solo aquellos cuyo precio de venta al público ha superado en  un 30 % al precio mínimo.
+
+PRODUCT_ID  MIN_PRICE UNIT_PRICE INCREMENTO
+---------- ---------- ---------- ----------
+      2373          4          6         50
+      2810          4          6         50
+      2373          4          6         50
+
+******  10.	Mostrar el apellido de los empleados que ganen un 35% más del salario medio de su puesto. El listado debe incluir el salario del empleado y su puesto.
+
+LAST_NAME                 JOB_TITLE                               SALARY
+------------------------- ----------------------------------- ----------
+Hunold                    Programmer                                9000
+Ozer                      Sales Representative                     11500
+
+Confirmación terminada.

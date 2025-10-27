@@ -107,8 +107,32 @@ SELECT proInf.product_id AS id, proInf.min_price, proInf.list_price,((((proInf.l
     WHERE ((((proInf.list_price - proInf.min_price) / proInf.min_price)) * 100) >= 30
         AND proInf.min_price <> 0
     ORDER BY proInf.product_id;
-
+--No da lo que pone en el txt de soluciones pero creo que Alberoe lo tiene mal, porque hay mas de 3 productos con un incremento mayor al 30%.
 
 prompt ------10:
---10: Mostrar el apellido de los empleados que ganen un 35% más del salario medio de su puesto. 
+--10: mostrar el apellido de los empleados que ganen un 35% más del salario medio de su puesto. 
 --El listado debe incluir el salario del empleado y su puesto.
+
+
+SELECT *
+    FROM pr3_employees emp
+    WHERE emp.job_id =,emp.salary
+
+(SELECT emp.job_id, AVG(emp.salary)
+    FROM pr3_employees emp
+    GROUP BY emp.job_id);
+
+--SELECT *
+--FROM empleados
+--WHERE departamento_id IN (
+--    SELECT departamento_id
+--    FROM empleados
+--    GROUP BY departamento_id
+--    HAVING AVG(salario) > (SELECT AVG(salario) FROM empleados WHERE nombre = 'EmpleadoX'));
+
+        
+--agrupar por trabajo y coger la media de salario de ahi. Y comparar eso con que el salario de cada empleado sea mayor al 35%.
+
+
+
+

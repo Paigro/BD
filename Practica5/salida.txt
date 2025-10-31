@@ -1,0 +1,100 @@
+
+   IDCANAL NOMBRE                                             SUM(DURACION)
+---------- -------------------------------------------------- -------------
+         2 La de los documentales                                       202
+
+
+   IDCANAL NOMBRE                                               COUNT(*)
+---------- -------------------------------------------------- ----------
+         1 Channel one                                                 3
+
+
+   IDCANAL NOMBRE                                             TITULO                                               DURACION
+---------- -------------------------------------------------- -------------------------------------------------- ----------
+         6 Antena Sexta                                       Inocente o culpable                                       280
+
+
+TITULO                                            
+--------------------------------------------------
+La vida secreta de las plantas
+Los misterios del ultimo emperador
+Incredible sushi made easy
+
+
+TITULO                                             NOMBRE                                                IDCANAL   DURACION
+-------------------------------------------------- -------------------------------------------------- ---------- ----------
+Lo que el viento se llevo                          Antena Sexta                                                6        238
+Lo que el viento se llevo                          Channel one                                                 1        238
+Juego de trinos. T1 Ep1                            Todo series                                                 4         55
+Juego de trinos. T1 Ep4                            Todo series                                                 4         58
+Inocente o culpable                                Antena Sexta                                                6        280
+Los misterios del ultimo emperador                 La de los documentales                                      2         58
+Incredible sushi made easy                         La de los documentales                                      2         64
+
+7 filas seleccionadas. 
+
+
+TITULO                                               DURACION TIPO                
+-------------------------------------------------- ---------- --------------------
+Incredible sushi made easy                                 64 documental          
+Inocente o culpable                                       280 entretenimiento     
+Lo que el viento se llevo                                 238 ficcion             
+
+
+TITULO                                             NVL(C.NOMBRE,'NOEMITIDO')                          FEC_HORA           
+-------------------------------------------------- -------------------------------------------------- -------------------
+Lo que el viento se llevo                          Channel one                                        18-12-2017 23:00:00
+Lo que el viento se llevo                          Antena Sexta                                       21-12-2017 16:15:00
+Inocente o culpable                                Antena Sexta                                       21-12-2017 19:10:00
+La vida secreta de las plantas                     La de los documentales                             18-12-2017 16:10:00
+Los misterios del ultimo emperador                 La de los documentales                             25-12-2017 15:35:00
+El cultivo del champignon                          La de los documentales                             27-12-2017 14:00:00
+Incredible sushi made easy                         La de los documentales                             28-12-2017 19:30:00
+El cultivo del champignon                          Channel one                                        28-12-2017 08:30:00
+Los misterios del ultimo emperador                 Channel one                                        28-12-2017 10:30:00
+Incredible sushi made easy                         Channel one                                        28-12-2017 12:30:00
+El cultivo del champignon                          Antena Sexta                                       31-12-2017 23:30:00
+
+TITULO                                             NVL(C.NOMBRE,'NOEMITIDO')                          FEC_HORA           
+-------------------------------------------------- -------------------------------------------------- -------------------
+Juego de trinos. T1 Ep1                            Todo series                                        21-12-2017 21:30:00
+Juego de trinos. T1 Ep2                            Todo series                                        22-12-2017 21:30:00
+Juego de trinos. T1 Ep3                            Todo series                                        23-12-2017 21:30:00
+Juego de trinos. T1 Ep4                            Todo series                                        24-12-2017 21:30:00
+Juego de trinos. T1 Ep5                            Todo series                                        25-12-2017 21:30:00
+Juego de trinos. T1 Ep6                            Todo series                                        26-12-2017 21:30:00
+Juego de trinos. T1 Ep7                            NO EMITIDO                                                            
+
+18 filas seleccionadas. 
+
+
+TITULO                                             NOMBRE                                             FEC_HORA           
+-------------------------------------------------- -------------------------------------------------- -------------------
+El cultivo del champignon                          Antena Sexta                                       31-12-2017 23:30:00
+El cultivo del champignon                          Channel one                                        28-12-2017 08:30:00
+El cultivo del champignon                          La de los documentales                             27-12-2017 14:00:00
+Incredible sushi made easy                         Channel one                                        28-12-2017 12:30:00
+Incredible sushi made easy                         La de los documentales                             28-12-2017 19:30:00
+Inocente o culpable                                Antena Sexta                                       21-12-2017 19:10:00
+Juego de trinos. T1 Ep1                            Todo series                                        21-12-2017 21:30:00
+Juego de trinos. T1 Ep2                            Todo series                                        22-12-2017 21:30:00
+Juego de trinos. T1 Ep3                            Todo series                                        23-12-2017 21:30:00
+Juego de trinos. T1 Ep4                            Todo series                                        24-12-2017 21:30:00
+Juego de trinos. T1 Ep5                            Todo series                                        25-12-2017 21:30:00
+
+TITULO                                             NOMBRE                                             FEC_HORA           
+-------------------------------------------------- -------------------------------------------------- -------------------
+Juego de trinos. T1 Ep6                            Todo series                                        26-12-2017 21:30:00
+Juego de trinos. T1 Ep7                            NO EMITIDO                                                            
+La vida secreta de las plantas                     La de los documentales                             18-12-2017 16:10:00
+Lo que el viento se llevo                          Antena Sexta                                       21-12-2017 16:15:00
+Lo que el viento se llevo                          Channel one                                        18-12-2017 23:00:00
+Los misterios del ultimo emperador                 Channel one                                        28-12-2017 10:30:00
+Los misterios del ultimo emperador                 La de los documentales                             25-12-2017 15:35:00
+
+18 filas seleccionadas. 
+
+
+CODPROGRAMA FEC_HORA            CODPROGRAMA FEC_HORA            NOMBRE                                            
+----------- ------------------- ----------- ------------------- --------------------------------------------------
+          1 21-12-2017 16:15:00           9 21-12-2017 19:10:00 Antena Sexta                                      

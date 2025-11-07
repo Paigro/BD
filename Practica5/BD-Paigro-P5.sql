@@ -55,9 +55,10 @@ prompt ------5
 --5: para los programas que se emiten en algun canal, muestra el ttulo del programa y el nombre del canal en el
 --que se emite de aquellos programas que cumplen la siguiente condicion: la duracion del programa es mayor a
 --la duracion media de los programas emitidos en ese mismo canal.
+SELECT *
+    FROM pr5b_programa prog
 
-
-
+;
 prompt ------6
 --6: muestra el ttulo de los programas de mayor duracion de cada tipo de los emitidos en el mismo mes en
 --cualquier canal.

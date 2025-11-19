@@ -72,7 +72,7 @@ SELECT empl.eid, empl.nombre, COUNT(*) AS certificados
     FROM pr5c1_empleado empl
         JOIN pr5c1_certificado cert ON empl.eid = cert.eid
     GROUP BY empl.eid, empl.nombre
-    HAVING COUNT(*) >= 3
+    HAVING COUNT(*) = 3
 ;
 prompt ------8
 --8: Nombre de los aviones tales que todos los pilotos certificados para operar con ellos tengan salarios superiores
@@ -85,7 +85,23 @@ SELECT avi.nombre
             FROM pr5c1_empleado emp
             WHERE emp.salario > 80000)
 ;--Esta mal.
-
+prompt ------9:
+--Para cada piloto certificado para operar con mas de 3 modelos de avion indicar el codigo de empleado y la
+--autonoma maxima de los aviones que puede pilotar.
+SELECT autonomia
+    FROM (SELECT cert.eid AS eid, avi.nombre AS nombre, avi.autonomia AS autonomia
+            FROM pr5c1_certificado cert
+                JOIN pr5c1_avion avi ON cert.aid = avi.aid
+            WHERE cert.eid IN
+                (SELECT empl.eid
+                    FROM pr5c1_empleado empl
+                        JOIN pr5c1_certificado cert ON empl.eid = cert.eid
+                    GROUP BY empl.eid
+                    HAVING COUNT(*) >= 3)
+            ORDER BY cert.eid)
+    GROUP BY autnonomia
+    WHERE autonomia = MAX(autonomia)
+;--Falta coger el avion de cada uno con la maxima autonomia.
 
 
 

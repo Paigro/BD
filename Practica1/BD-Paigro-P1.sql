@@ -7,31 +7,31 @@
 --Establcer columnas como NULL: con DEFAULT (x).
 
 
-CREATE TABLE P1_Persona (
+CREATE TABLE p1_persona (
     dni VARCHAR2(9),
     nombre VARCHAR2(40) NOT NULL,
     
     CONSTRAINT p1_persona_PK PRIMARY KEY (dni)
 );
 
-CREATE TABLE P1_Arbitro(
+CREATE TABLE p1_arbitro(
     dni VARCHAR2(9),
     numTemporadas NUMBER(2) NOT NULL,
     
     CONSTRAINT p1_arbitro_PK PRIMARY KEY (dni),
     CONSTRAINT p1_arbitro_FK FOREIGN KEY (dni)
-        REFERENCES P1_Persona ON DELETE CASCADE
+        REFERENCES p1_persona ON DELETE CASCADE
 );
 
-CREATE TABLE P1_Entrenador(
+CREATE TABLE p1_entrenador(
     dni VARCHAR2(9),
     
     CONSTRAINT p1_entrenador_PK PRIMARY KEY (dni),
     CONSTRAINT p1_entrenador_FK FOREIGN KEY (dni)
-        REFERENCES P1_Persona ON DELETE CASCADE
+        REFERENCES p1_persona ON DELETE CASCADE
 );
 
-CREATE TABLE P1_Equipo(
+CREATE TABLE p1_equipo(
     nif VARCHAR2(9),
     nombre VARCHAR2(20) NOT NULL,
     presupuesto NUMBER(20) NOT NULL,
@@ -39,10 +39,10 @@ CREATE TABLE P1_Equipo(
     
     CONSTRAINT p1_equipo_PK PRIMARY KEY (nif),
     CONSTRAINT p1_equipo_FK FOREIGN KEY (dni)
-        REFERENCES P1_Entrenador ON DELETE CASCADE
+        REFERENCES p1_entrenador ON DELETE CASCADE
 );
 
-CREATE TABLE P1_Jugador(
+CREATE TABLE p1_jugador(
     dni VARCHAR2(9),
     dorsal NUMBER(2) NOT NULL,
     ficha VARCHAR2(10) NOT NULL,
@@ -53,11 +53,11 @@ CREATE TABLE P1_Jugador(
     CONSTRAINT p1_jugador_FK_dni FOREIGN KEY (dni)
         REFERENCES P1_Persona ON DELETE CASCADE,
     CONSTRAINT p1_jugador_FK_nif FOREIGN KEY (nif)
-        REFERENCES P1_Equipo ON DELETE CASCADE,
+        REFERENCES p1_equipo ON DELETE CASCADE,
     CONSTRAINT p1_jugador_CK_dem CHECK (demarcacion IN('portero', 'defensa', 'delantero', 'centrocampista', 'lateral'))
 );
 
-CREATE TABLE P1_Partido(
+CREATE TABLE p1_partido(
     jornada NUMBER(2),
     estadio VARCHAR2(20),
     diaYHora DATE NOT NULL,
@@ -67,15 +67,15 @@ CREATE TABLE P1_Partido(
     
     CONSTRAINT p1_partido_PK_ PRIMARY KEY (jornada, estadio),
     CONSTRAINT p1_partido_FK_nifLoc FOREIGN KEY (nifLocal)
-        REFERENCES P1_Equipo ON DELETE CASCADE,
+        REFERENCES p1_equipo ON DELETE CASCADE,
     CONSTRAINT p1_partido_FK_nifVis FOREIGN KEY (nifVisitante)
-        REFERENCES P1_Equipo ON DELETE CASCADE,
+        REFERENCES p1_equipo ON DELETE CASCADE,
     CONSTRAINT p1_partido_FK_dni FOREIGN KEY (dni)
-        REFERENCES P1_Arbitro ON DELETE CASCADE,
+        REFERENCES p1_arbitro ON DELETE CASCADE,
     CONSTRAINT p1_partido_CK_nifs CHECK (nifLocal!= nifVisitante)
 );
 
-CREATE TABLE P1_Acta(
+CREATE TABLE p1_acta(
     idActa NUMBER(9),
     jornada NUMBER(2),
     estadio VARCHAR(20),
@@ -83,12 +83,12 @@ CREATE TABLE P1_Acta(
     
     CONSTRAINT p1_acta_PK PRIMARY KEY (idActa),
     CONSTRAINT p1_acta_FK_par FOREIGN KEY (jornada, estadio)
-        REFERENCES P1_Partido ON DELETE CASCADE,
+        REFERENCES p1_partido ON DELETE CASCADE,
     CONSTRAINT p1_acta_FK_dni FOREIGN KEY (dni)
-        REFERENCES P1_Arbitro ON DELETE CASCADE   
+        REFERENCES p1_arbitro ON DELETE CASCADE   
 );
 
-CREATE TABLE P1_Incidencia(
+CREATE TABLE p1_incidencia(
     minuto NUMBER(3),
     idActa NUMBER(9),
     tipo VARCHAR2(14) NOT NULL,
@@ -96,31 +96,31 @@ CREATE TABLE P1_Incidencia(
     
     CONSTRAINT p1_incidencia_PK PRIMARY KEY (minuto, idActa),
     CONSTRAINT p1_incidencia_FK FOREIGN KEY (idActa)
-        REFERENCES P1_Acta,
+        REFERENCES p1_acta,
     CONSTRAINT p1_incidencia_CK CHECK (tipo IN('falta', 'gol', 'fuera de banda', 'fuera de juego'))
 );
 
-CREATE TABLE P1_ArbitroSec(
+CREATE TABLE p1_arbitroSec(
     dni VARCHAR2(9),
     jornada NUMBER(2),
     estadio VARCHAR2(20),
     
     CONSTRAINT p1_arbSec_PK PRIMARY KEY (dni, jornada, estadio),
     CONSTRAINT p1_arbSec_FK_dni FOREIGN KEY (dni)
-        REFERENCES P1_Arbitro ON DELETE CASCADE,
+        REFERENCES p1_arbitro ON DELETE CASCADE,
     CONSTRAINT p1_arbSec_FK_par FOREIGN KEY (jornada, estadio)
-        REFERENCES P1_Partido ON DELETE CASCADE
+        REFERENCES p1_partido ON DELETE CASCADE
 );
 
-CREATE TABLE P1_Interviene (
+CREATE TABLE p1_interviene (
     dni VARCHAR2(9),
     idActa NUMBER(9),
     minuto NUMBER(3),
     sancion VARCHAR2(16) NOT NULL,
     
     CONSTRAINT p1_interviene_FK_dni FOREIGN KEY (dni)
-        REFERENCES P1_Jugador ON DELETE CASCADE,
+        REFERENCES p1_jugador ON DELETE CASCADE,
     CONSTRAINT p1_interviene_FK_Act FOREIGN KEY (idActa, minuto)
-        REFERENCES P1_Incidencia ON DELETE CASCADE,
+        REFERENCES p1_incidencia ON DELETE CASCADE,
     CONSTRAINT p1_interviene_CK CHECK(sancion IN('tarjeta roja', 'tarjeta amarilla', 'inexixtente'))
 );

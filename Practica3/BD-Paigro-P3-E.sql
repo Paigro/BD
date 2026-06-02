@@ -126,6 +126,11 @@ SELECT  emp.first_name || ' ' || emp.last_name as NombreCompleto
         AND emp.department_id IS NOT NULL
         AND emp.department_id <> jh.department_id
     ORDER BY emp.first_name
+;
+
+
+
+prompt ========================================
 
 
 

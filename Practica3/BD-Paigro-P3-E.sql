@@ -130,18 +130,4 @@ SELECT  emp.first_name || ' ' || emp.last_name as NombreCompleto
 
 
 
-prompt ========================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+prompt ====================P3====================

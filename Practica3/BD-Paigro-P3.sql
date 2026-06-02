@@ -119,7 +119,7 @@ SELECT emp.first_name
             FROM pr3_departments dep
             WHERE dep.department_name = 'IT')
         AND emp.department_id IS NOT NULL -- Te asegura que ahora trabaja en otro puesto.
-        AND emp.department_id <> jhi.department_id; -- te asegura que se departamento actual no sea sales.
+        AND emp.department_id <> jhi.department_id; -- te asegura que se departamento actual no sea IT.
 
 prompt ------13:  
 --13: listado con los nombres de los empleados que trabajan en cualquier departamento cuyo nombre contenga una e que no trabajan en Europa, junto con el nombre del departamento y del país en el que trabajan.  

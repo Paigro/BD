@@ -16,7 +16,7 @@ SELECT can.nombre AS nombre_canal, SUM(prog.duracion) AS duracion_total
     HAVING COUNT(progs.idcanal) > 3
  ;           
 prompt ------2
---2: muestra el nombre de los canales que emiten mas de 2 documentales distintos el mismo da. NOTA: recuerda
+--2: muestra el nombre de los canales que emiten mas de 2 documentales distintos el mismo dia. NOTA: recuerda
 --que puedes agrupar por columnas, pero tambien por expresiones (con operadores, funciones, etc.).
 SELECT can.nombre AS nombre_canal, COUNT(progs.idcanal)
     FROM pr5b_programa prog

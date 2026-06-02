@@ -109,21 +109,4 @@ SELECT emp.last_name AS apellido_empleado, emp.salary AS salario_empleado, jobs.
 
 
 
-prompt ========================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+prompt ====================P4====================

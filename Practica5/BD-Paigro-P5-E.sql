@@ -96,4 +96,4 @@ SELECT prog.titulo AS titulo_programa, can.nombre AS nombre_canal, prgm.fec_hora
 
 
 
-prompt ====================P5====================
+prompt ====================FIN P5====================

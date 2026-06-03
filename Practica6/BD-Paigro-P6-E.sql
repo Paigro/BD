@@ -247,6 +247,7 @@ BEGIN
         WHERE product_id = 1797
             AND warehouse_id = 6 -- Para probar para que no salte el trigger las3 veces que esta el producto en los 3 almacenes.
     ;
+    
 END;
 /
 

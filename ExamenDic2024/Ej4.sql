@@ -18,7 +18,7 @@ Entrena(entrenador, socio)
 
 */
 
---Apartado A:Escribe un procedimiento PL/SQL que reciba un NSS de un entrenador y escriba (sólo si 
+--Apartado A: Escribe un procedimiento PL/SQL que reciba un NSS de un entrenador y escriba (sólo si 
 --  existe dicho entrenador en la base de datos) una primera línea con el NSS y nombre del entrenador. 
 --  Posteriormente debe ir listando de cada uno de los socios entrenados por dicho entrenador el código y 
 --  nombre, seguido de un listado de cada una de sus reservas en orden cronológico incluyendo la fecha, 
@@ -145,3 +145,4 @@ CREATE OR REPLACE PROCEDURE listar_socios (NSS_entrenador t_entrenador.NSS%TYPE)
         DBMS_OUTPUT.put_line('---');
 
 END;
+/

@@ -37,7 +37,7 @@ UPDATE Socio S
 --  Escribe un disparador PL/SQL que mantenga actualizada la información de dichas columnas cada vez que 
 --  se añada o se elimine una fila de la tabla Reserva, o bien, se actualice el campo precio de dicha tabla. 
 
-CREATE  OR REPLACE TRIGGER t_update_socio
+CREATE OR REPLACE TRIGGER t_update_socio
     AFTER INSERT OR DELETE OR UPDATE OF precio ON t_reserva
     FOR EACH ROW 
 

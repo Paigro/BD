@@ -46,17 +46,16 @@ SELECT NVL(SUM(res.precio), 0 ) AS ingresos_totales
     WHERE soc.plan = 'Anual' -- Queremos solo los que tienen el pkan anual.
         AND soc.codigo NOT IN -- Con esto quitamos los socios que estan en entrena => los que tienen entrenador.
             (SELECT ent.socio
-                FROM t_entrena ent
-                WHERE ent.socio = soc.codigo)
+                FROM t_entrena ent)
 ;
 
 --Apartado D: Determinar los socios que en total han pagado menos dinero por sus reservas que lo que 
 -- ha pagado la socia 'Elena Gómez' por las suyas. Esquema: (Codigo, Nombre, TotalPagado).
 SELECT soc.codigo AS codigo_socio, soc.nombre AS nombre_socio, NVL(SUM (res.precio), 0) AS total_pagado
     FROM t_reserva res -- Cogemos la tabla reservas.
-        JOIN t_socio soc ON soc.codigo = res.socio -- Unimos con socio porque queremos sus datos.
+        LEFT JOIN t_socio soc ON soc.codigo = res.socio -- Unimos con socio porque queremos sus datos. LEFT porque queremos los 0s.
     GROUP BY soc.codigo, soc.nombre -- Agrupamos las reservas de cada uno. Cogemos el nombre tambien para poder usarlo luego.
-    HAVING SUM(res.precio) < -- Solo los que han pagado menos que Elena.
+    HAVING NVL(SUM(res.precio), 0) < -- Solo los que han pagado menos que Elena.
         (SELECT NVL(SUM (r.precio), 0) -- De aqui sacamos lo que ha pagado Elena en total en todas sus reservas. NVL por si acaso.
             FROM t_reserva r
                 JOIN t_socio s ON s.codigo = r.socio
